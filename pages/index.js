@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import clientPromise from '../lib/mongodb'
-import { useSession, signIn, signOut } from "next-auth/react"
+import { getSession, useSession, signIn, signOut } from "next-auth/react"
 
 export default function Home({isConnected}) {
   const { data: session } = useSession()
@@ -51,6 +51,17 @@ export default function Home({isConnected}) {
 }
 
 export async function getServerSideProps(context) {
+  const session = await getSession(context)
+
+  if (session){
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/staff"
+      }
+    }
+  }
+
   try {
     await clientPromise
     // `await clientPromise` will use the default database passed in the MONGODB_URI
