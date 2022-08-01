@@ -2,8 +2,13 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import clientPromise from '../lib/mongodb'
+import { useSession, signIn, signOut } from "next-auth/react"
 
 export default function Home({isConnected}) {
+  const { data: session } = useSession()
+  if(session){
+    console.log(session.user)
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -13,6 +18,8 @@ export default function Home({isConnected}) {
       </Head>
 
       <main className={styles.main}>
+
+        {!session ? <button onClick={() => signIn()}>Sign in</button> : <h3><button onClick={() => signOut()}>Sign Out</button></h3>}
 
         <h1>Hello</h1>
 
@@ -24,7 +31,7 @@ export default function Home({isConnected}) {
             for instructions.
           </h2>
         )}
-        
+
       </main>
 
       <footer className={styles.footer}>
