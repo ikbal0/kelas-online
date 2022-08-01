@@ -6,9 +6,9 @@ import { useSession, signIn, signOut } from "next-auth/react"
 
 export default function Home({isConnected}) {
   const { data: session } = useSession()
-  if(session){
-    console.log(session.user)
-  }
+  // if(session){
+  //   console.log(session.user)
+  // }
   return (
     <div className={styles.container}>
       <Head>
@@ -21,7 +21,7 @@ export default function Home({isConnected}) {
 
         {!session ? <button onClick={() => signIn()}>Sign in</button> : <h3><button onClick={() => signOut()}>Sign Out</button></h3>}
 
-        <h1>Hello</h1>
+        <h1>{!session ? '': session.user.name} Hello</h1>
 
         {isConnected ? (
           <h2 className="subtitle">You are connected to MongoDB</h2>

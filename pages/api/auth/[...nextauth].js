@@ -13,7 +13,7 @@ export default NextAuth({
             // You can specify whatever fields you are expecting to be submitted.
             // e.g. domain, username, password, 2FA token, etc.
             credentials: {
-                username: { label: "Email", type: "text", placeholder: "jsmith" },
+                email: { label: "Email", type: "text", placeholder: "jsmith" },
                 password: {  label: "Password", type: "password" }
             },
             async authorize(credentials, req) {
@@ -21,14 +21,17 @@ export default NextAuth({
                 const client = await clientPromise
                 const db_e_learning_db = await client.db("e_learning_db")
                 const userTbl = await db_e_learning_db.collection("userTbl")
-                const dataUser = userTbl.find({})
+                // const dataUser = userTbl.find({})
                 // Add logic here to look up the user from the credentials supplied
 
-                if (credentials.username === "a" && credentials.password ==="a") {
-                    // Any object returned will be saved in `user` property of the JWT
-                    const user = { id: 1, name: 'J Smith', email: 'jsmith@example.com' }
+                const dataUser = await userTbl.findOne({email: credentials.email})
 
-                    return user
+                if (dataUser) {
+                    if (credentials.password === dataUser.password){
+                        return dataUser
+                    } else {
+                        return null
+                    }
                 } else {
                     // If you return null or false then the credentials will be rejected
                     return null
