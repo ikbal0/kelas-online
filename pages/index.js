@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import clientPromise from '../lib/mongodb'
 import { getSession, useSession, signIn, signOut } from "next-auth/react"
+import Link from 'next/link'
 
 export default function Home({isConnected}) {
   const { data: session } = useSession()
@@ -20,6 +21,8 @@ export default function Home({isConnected}) {
       <main className={styles.main}>
 
         {!session ? <button onClick={() => signIn()}>Sign in</button> : <h3><button onClick={() => signOut()}>Sign Out</button></h3>}
+
+        <h1>{!session ? '': <Link href={'/staff'}><a style={{color: 'blue', textDecoration: 'underline'}}>Staff</a></Link>}</h1>
 
         <h1>{!session ? '': session.user.name} Hello</h1>
 
@@ -52,15 +55,6 @@ export default function Home({isConnected}) {
 
 export async function getServerSideProps(context) {
   const session = await getSession(context)
-
-  if (session){
-    return {
-      redirect: {
-        permanent: false,
-        destination: "/staff"
-      }
-    }
-  }
 
   try {
     await clientPromise

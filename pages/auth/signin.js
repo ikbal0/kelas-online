@@ -25,7 +25,7 @@ export async function getServerSideProps(context) {
         return {
             redirect: {
                 permanent: false,
-                destination: "/staff"
+                destination: "/"
             }
         }
     }
