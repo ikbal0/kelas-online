@@ -23,7 +23,7 @@ export default function Home({isConnected}) {
 
       <main className={styles.main}>
 
-        <h1>{!session ? '': <Link href={'/staff'}><a style={{color: 'blue', textDecoration: 'underline'}}>Staff</a></Link>}</h1>
+        <h1>{!session ? '': <Link href={'/staff'}><a style={{color: 'blue', textDecoration: 'underline'}}>Dashboard</a></Link>}</h1>
 
         <h1>{!session ? '': <a style={{color: 'blue'}}>{session.user.name}</a>} Hello</h1>
 
