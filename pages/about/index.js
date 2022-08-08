@@ -1,5 +1,5 @@
 import Link from "next/link";
-import AppNavbar from "../../components/navbar/appNavbar";
+import AppNavbar from "../../components/appNavbar";
 
 export default function AboutPage(){
     return <div>
