@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css'
 import clientPromise from '../lib/mongodb'
 import { getSession, useSession, signIn, signOut } from "next-auth/react"
 import Link from 'next/link'
+import AppNavbar from '../components/navbar/appNavbar'
 
 export default function Home({isConnected}) {
   const { data: session } = useSession()
@@ -18,13 +19,13 @@ export default function Home({isConnected}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <AppNavbar />
 
-        {!session ? <button onClick={() => signIn()}>Sign in</button> : <h3><button onClick={() => signOut()}>Sign Out</button></h3>}
+      <main className={styles.main}>
 
         <h1>{!session ? '': <Link href={'/staff'}><a style={{color: 'blue', textDecoration: 'underline'}}>Staff</a></Link>}</h1>
 
-        <h1>{!session ? '': session.user.name} Hello</h1>
+        <h1>{!session ? '': <a style={{color: 'blue'}}>{session.user.name}</a>} Hello</h1>
 
         {isConnected ? (
           <h2 className="subtitle">You are connected to MongoDB</h2>
@@ -48,6 +49,9 @@ export default function Home({isConnected}) {
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
+      </footer>
+      <footer className={styles.footer}>
+        <Link href={'/about'}><a style={{color: 'blue'}}>Ikbal Yaduar</a></Link>
       </footer>
     </div>
   )
