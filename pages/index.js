@@ -5,6 +5,7 @@ import clientPromise from '../lib/mongodb'
 import { getSession, useSession, signIn, signOut } from "next-auth/react"
 import Link from 'next/link'
 import AppNavbar from '../lib/components/AppNavbar'
+import img from '../public/assets/pic/bg/bgIndex.png'
 
 export default function Home({isConnected}) {
   const { data: session } = useSession()
@@ -23,19 +24,36 @@ export default function Home({isConnected}) {
 
       <main className={styles.main}>
 
-        <h1>{!session ? '': <Link href={'/staff'}><a style={{color: 'blue', textDecoration: 'underline'}}>Dashboard</a></Link>}</h1>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-sm-12 col-md-5'>
+              <div className='row'>
+                <h1 style={{color: 'white'}}>{!session ? '': <a style={{color: 'white'}}>{session.user.name}</a>} Hello</h1>
 
-        <h1>{!session ? '': <a style={{color: 'blue'}}>{session.user.name}</a>} Hello</h1>
+                {isConnected ? (
+                  <h2 style={{color: 'white'}} className="subtitle">You are connected to MongoDB</h2>
+                ) : (
+                  <h2 style={{color: 'white'}} className="subtitle">
+                    You are NOT connected to MongoDB. Check the <code>README.md</code>{' '}
+                    for instructions.
+                  </h2>
+                )}
+              </div>
 
-        {isConnected ? (
-          <h2 className="subtitle">You are connected to MongoDB</h2>
-        ) : (
-          <h2 className="subtitle">
-            You are NOT connected to MongoDB. Check the <code>README.md</code>{' '}
-            for instructions.
-          </h2>
-        )}
-
+              <div className='row'>
+                <div className='col-auto'>
+                  <h1>{!session ? '': <Link href={'/staff'}><a className='btn btn-primary'>Dashboard</a></Link>}</h1>
+                </div>
+                <div className='col'>
+                  <h3 style={{color: 'white', paddingTop: '5px'}}>{"--->"}</h3>
+                </div>
+              </div>
+            </div>
+            <div className='col-sm-12 col-md-7'>
+              <Image src={img} placeholder='blur' alt='pic'/>
+            </div>
+          </div>
+        </div>
       </main>
 
       <footer className={styles.footer}>
