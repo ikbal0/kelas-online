@@ -45,7 +45,7 @@ export default function Home({isConnected}) {
                   <h1>{!session ? '': <Link href={'/staff'}><a className='btn btn-primary'>Dashboard</a></Link>}</h1>
                 </div>
                 <div className='col'>
-                  <h3 style={{color: 'white', paddingTop: '5px'}}>{"--->"}</h3>
+                  <h3 style={{color: 'white', paddingTop: '9px'}}>{"--->"}</h3>
                 </div>
               </div>
             </div>
@@ -57,19 +57,20 @@ export default function Home({isConnected}) {
       </main>
 
       <footer className={styles.footer}>
+        <Link href={'/about'}><a style={{color: 'blue', textDecoration: 'none'}}>Ikbal Yaduar</a></Link>
+      </footer>
+      <footer className={styles.footer}>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
           rel="noopener noreferrer"
+          style={{textDecoration: 'none'}}
         >
           Powered by{' '}
           <span className={styles.logo}>
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
-      </footer>
-      <footer className={styles.footer}>
-        <Link href={'/about'}><a style={{color: 'blue'}}>Ikbal Yaduar</a></Link>
       </footer>
     </div>
   )
