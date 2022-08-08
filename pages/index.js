@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css'
 import clientPromise from '../lib/mongodb'
 import { getSession, useSession, signIn, signOut } from "next-auth/react"
 import Link from 'next/link'
-import AppNavbar from '../components/navbar/appNavbar'
+import AppNavbar from '../components/AppNavbar'
 
 export default function Home({isConnected}) {
   const { data: session } = useSession()
