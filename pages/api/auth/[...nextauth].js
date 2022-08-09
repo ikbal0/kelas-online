@@ -2,8 +2,6 @@ import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 import clientPromise from "../../../lib/mongodb";
 
-
-
 export default NextAuth({
     providers: [
         CredentialsProvider({
@@ -19,16 +17,31 @@ export default NextAuth({
             async authorize(credentials, req) {
 
                 const client = await clientPromise
-                const db_e_learning_db = await client.db("e_learning_db")
-                const userTbl = await db_e_learning_db.collection("userTbl")
+                const testDb = await client.db("test-Db")
+                const userTbl = await testDb.collection("userTbl")
+
+                
+                // const e_learning_db = await client.db("e_learning_db")
+                // const userTbl = await e_learning_db.collection("userTbl")
                 // const dataUser = userTbl.find({})
                 // Add logic here to look up the user from the credentials supplied
 
                 const dataUser = await userTbl.findOne({email: credentials.email})
 
+                // console.log({
+                //     cred_email: credentials.email,
+                //     cred_pass: credentials.password,
+                //     email: dataUser.email,
+                //     password: dataUser.password
+                // })
+
                 if (dataUser) {
                     if (credentials.password === dataUser.password){
-                        return dataUser
+                        console.log(dataUser)
+                        return {
+                            email: dataUser.email,
+                            level: dataUser.level
+                        }
                     } else {
                         return null
                     }
@@ -42,13 +55,29 @@ export default NextAuth({
             }
         })
     ],
+    callbacks: {
+        jwt: ({ token, user }) => {
+            if(user){
+                token.email = user.email,
+                token.level = user.level
+            }
+
+            return token
+        },
+        session: ({ session, token }) => {
+            if(token){
+                session.email = token.email
+                session.level = token.level
+            }
+
+            return session
+        },
+    },
     pages: {
         signIn: '/auth/signin',
     },
-    session: {
-        jwt: true
-    },
+    secret: process.env.JWT_SECREAT,
     jwt: {
-        secret: process.env.MONGODB_URI,
+        secret: process.env.JWT_SECREAT,
     },
 })

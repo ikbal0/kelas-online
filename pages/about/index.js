@@ -16,7 +16,7 @@ export default function AboutPage(){
 
                 <div className='col-sm-12 col-md-6'>
                     <div className="row text-center">
-                        <h7 style={{color: '#4348fa'}}>Hello everyone, my Name is</h7>
+                        <p style={{color: '#4348fa'}}>Hello everyone, my Name is</p>
                     </div>
 
                     <div className="row mb-2 text-center">

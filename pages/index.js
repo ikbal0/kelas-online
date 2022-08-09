@@ -28,7 +28,7 @@ export default function Home({isConnected}) {
           <div className='row'>
             <div className='col-sm-12 col-md-5'>
               <div className='row'>
-                <h1 style={{color: 'white'}}>{!session ? '': <a style={{color: 'white'}}>{session.user.name}</a>} Hello</h1>
+                <h1 style={{color: 'white'}}>{!session ? 'Hello': <a style={{color: 'white'}}>{'Welcome ' + session.user.email}</a>}</h1>
 
                 {isConnected ? (
                   <h2 style={{color: 'white'}} className="subtitle">You are connected to MongoDB</h2>
