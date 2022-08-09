@@ -33,49 +33,61 @@ export default function AboutPage(){
 
                     <div className="row mb-2">
                         <div className="col-auto mb-3">
-                            <a className="btn btn-warning" href="https://github.com/ikbal0/kelas-online.git" target="_blank">Basic Javascript</a>
+                            <a 
+                            className="btn btn-warning" 
+                            href="https://github.com/ikbal0/kelas-online.git" 
+                            target="_blank" 
+                            rel="noopener noreferrer">
+                                Basic Javascript
+                            </a>
                         </div>
                         
                         <div className="col-auto mb-3">
                             {/* <div class="progress">
                                 <div class="progress-bar bg-warning" role="progressbar" aria-label="Warning example" style={{width: "100%"}} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                             </div> */}
-                            <a className="btn btn-danger" href="https://github.com/ikbal0/JavaPro.git" target="_blank">Basic Java</a>
+                            <a 
+                            className="btn btn-danger" 
+                            href="https://github.com/ikbal0/JavaPro.git" 
+                            target="_blank"
+                            rel="noopener noreferrer">
+                                Basic Java
+                            </a>
                         </div>
 
                         <div className="col-auto mb-3">
                             {/* <div class="progress">
                                 <div class="progress-bar bg-warning" role="progressbar" aria-label="Warning example" style={{width: "100%"}} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                             </div> */}
-                            <a className="btn btn-success" href="https://github.com/ikbal0/kelas-online.git" target="_blank">Node Js</a>
+                            <a className="btn btn-success" href="https://github.com/ikbal0/kelas-online.git" target="_blank" rel="noopener noreferrer">Node Js</a>
                         </div>
 
                         <div className="col-auto mb-3">
                             {/* <div class="progress">
                                 <div class="progress-bar bg-warning" role="progressbar" aria-label="Warning example" style={{width: "100%"}} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                             </div> */}
-                            <a className="btn btn-info" href="https://github.com/ikbal0/kelas-online.git" target="_blank">RestAPI</a>
+                            <a className="btn btn-info" href="https://github.com/ikbal0/kelas-online.git" target="_blank" rel="noopener noreferrer">RestAPI</a>
                         </div>
 
                         <div className="col-auto mb-3">
                             {/* <div class="progress">
                                 <div class="progress-bar bg-warning" role="progressbar" aria-label="Warning example" style={{width: "100%"}} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                             </div> */}
-                            <a className="btn btn-success" href="https://github.com/ikbal0/kelas-online.git" target="_blank">MongoDB</a>
+                            <a className="btn btn-success" href="https://github.com/ikbal0/kelas-online.git" target="_blank" rel="noopener noreferrer">MongoDB</a>
                         </div>
 
                         <div className="col-auto mb-3">
                             {/* <div class="progress">
                                 <div class="progress-bar bg-warning" role="progressbar" aria-label="Warning example" style={{width: "100%"}} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                             </div> */}
-                            <a className="btn" style={{backgroundColor: 'var(--bs-purple)', color: 'white'}} href="https://github.com/ikbal0/kelas-online.git" target="_blank">Bootstrap</a>
+                            <a className="btn" style={{backgroundColor: 'var(--bs-purple)', color: 'white'}} href="https://github.com/ikbal0/kelas-online.git" target="_blank" rel="noopener noreferrer">Bootstrap</a>
                         </div>
                         
                         <div className="col-auto mb-3">
                             {/* <div class="progress">
                                 <div class="progress-bar bg-warning" role="progressbar" aria-label="Warning example" style={{width: "100%"}} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                             </div> */}
-                            <a className="btn btn-dark" href="https://github.com/ikbal0/kelas-online.git" target="_blank">Next Js</a>
+                            <a className="btn btn-dark" href="https://github.com/ikbal0/kelas-online.git" target="_blank" rel="noopener noreferrer">Next Js</a>
                         </div>
 
                         <div className="col-auto mb-3">
