@@ -109,7 +109,7 @@ export default function AboutPage(){
                 <div className="card mb-3">
                         <div className="card-body">
                             <h2 className="my-4"><PersonBoundingBox/> About Me</h2>
-                            <h6>How I got into Programing</h6>
+                            <h6>How I got into Programming</h6>
                             <h6 className="mr-3"><CalendarFill/> 2017 - 2018</h6>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas aliquet luctus. Aliquam suscipit ut enim non ornare. Quisque blandit lorem justo, eu fringilla erat tempus nec. Ut ut ullamcorper risus. Suspendisse efficitur nibh non odio semper, in fermentum nisi condimentum. Aliquam erat volutpat. In diam risus, pellentesque sit amet interdum in, eleifend a nulla. Nunc feugiat dolor sed ante accumsan tincidunt. Aliquam gravida, orci eget tempus iaculis, erat sem volutpat ipsum, at commodo felis lorem eu nunc.</p>
                             
