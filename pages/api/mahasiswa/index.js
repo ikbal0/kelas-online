@@ -11,23 +11,45 @@ export default async function (req, res){
     const client = await clientPromise
     const testDb = await client.db("test-Db")
     const tblMahasiswa = await testDb.collection("tblMahasiswa")
-    const data = tblMahasiswa.aggregate( [
-      {
-        $lookup: {
-          from: "userTbl",
-          localField: "userId",    // field in the orders collection
-          foreignField: "_id",  // field in the items collection
-          as: "a"
-        }
-      },
-      {
-        $replaceRoot: { newRoot: { $mergeObjects: [ { $arrayElemAt: [ "$a", 0 ] }, "$$ROOT" ] } }
-      },
-      { $project: { a: 0 } }
-    ])
-      
-    const result = await data.toArray()
+    
     if (req.method === "GET"){
+      const data = tblMahasiswa.aggregate( [
+        {
+          $lookup: {
+            from: "userTbl",
+            localField: "userId",    // field in the orders collection
+            foreignField: "_id",  // field in the items collection
+            as: "a"
+          },
+          $lookup: {
+            from: "tblKelas",
+            localField: "idKelas",    // field in the orders collection
+            foreignField: "_id",  // field in the items collection
+            as: "b"
+          },
+        },
+        {
+          $lookup: {
+            from: "tabelJurusan",
+            localField: "b.idJurusan",
+            foreignField: "_id",
+            as: "c"
+          }
+        },
+        {
+          $replaceRoot: { newRoot: { $mergeObjects: [ { $arrayElemAt: [ "$a", 0 ] }, "$$ROOT" ] } }
+        },
+        {
+          $replaceRoot: { newRoot: { $mergeObjects: [ { $arrayElemAt: [ "$b", 0 ] }, "$$ROOT" ] } }
+        },
+        {
+          $replaceRoot: { newRoot: { $mergeObjects: [ { $arrayElemAt: [ "$c", 0 ] }, "$$ROOT" ] } }
+        },
+        { $project: { a: 0, b: 0, c: 0, idKelas: 0, userId: 0, idJurusan: 0} }
+      ])
+        
+      const result = await data.toArray()
+      
       res.json({session, result})
 
     } else if (req.method === "POST") {

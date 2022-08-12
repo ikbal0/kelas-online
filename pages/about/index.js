@@ -100,7 +100,7 @@ export default function AboutPage(){
 
                             <h6><Globe/> Language</h6>
                             <h6>Bahasa Indonesia</h6>
-                            <h6>English</h6>
+                            <h6>English <button className="btn btn-success btn-sm">Basic</button></h6>
                         </div>
                     </div>
                 </div>
@@ -111,18 +111,40 @@ export default function AboutPage(){
                             <h2 className="my-4"><PersonBoundingBox/> About Me</h2>
                             <h6>How I got into Programming</h6>
                             <h6 className="mr-3"><CalendarFill/> 2017 - 2018</h6>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas aliquet luctus. Aliquam suscipit ut enim non ornare. Quisque blandit lorem justo, eu fringilla erat tempus nec. Ut ut ullamcorper risus. Suspendisse efficitur nibh non odio semper, in fermentum nisi condimentum. Aliquam erat volutpat. In diam risus, pellentesque sit amet interdum in, eleifend a nulla. Nunc feugiat dolor sed ante accumsan tincidunt. Aliquam gravida, orci eget tempus iaculis, erat sem volutpat ipsum, at commodo felis lorem eu nunc.</p>
+                            <p>
+                                at 2014 when I'm at my last year in middle schoole, me and my friend think about how to make money, at that time
+                                we make a blog on Blogger, the idea come in because make a blog preaty popular that time. I learn 
+                                how to costume the page using css at that time, but I had no idea about it so the blog just make around 3 mounth.
+                                time went by until my scound year at highshool, the homeroom teacher gift the class a paper and we need to fill it whit 
+                                our plan for future like waht we gona do? work? colage? what majoring we gona take? what our future goals?,
+                                and I remember that I was at some point learn about web design so I take a consulation whit a TIK teacher.
+                            </p>
+
+                            <p>
+                                so I make a group of three people and start discusing about web programing but it's not a formal club but because we don't have
+                                a mentor it's not going wel, we just talking to the teacher if they have time, and I learn "C" until I go to colage.
+                            </p>
                             
                             <h6>I go to College Majoring in Informatics Engineering</h6>
                             <h6 className="mr-3"><CalendarFill/> 2018 - Now</h6>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas aliquet luctus. Aliquam suscipit ut enim non ornare. Quisque blandit lorem justo, eu fringilla erat tempus nec. Ut ut ullamcorper risus. Suspendisse efficitur nibh non odio semper, in fermentum nisi condimentum. Aliquam erat volutpat. In diam risus, pellentesque sit amet interdum in, eleifend a nulla. Nunc feugiat dolor sed ante accumsan tincidunt. Aliquam gravida, orci eget tempus iaculis, erat sem volutpat ipsum, at commodo felis lorem eu nunc.</p>
+                            <p>
+                                when I got to colage, I almost dosn't know any thing. like Algorithm, data structure, system planing.
+                                that was the ting I found on coalge.
+                            </p>
                         </div>
                     </div>
                     <div className="card">
                         <div className="card-body">
                             <h2 className="my-4"><Archive/> Education</h2>
+                            <h6>STIE DHARMA NEGARA</h6>
+                            <h6><CalendarFill/> 2020 - 2022</h6>
+                            <p className="mb-3">moved</p>
+
+                            <h6>LP3I Tasikmalaya</h6>
+                            <h6 className="mb-3"><CalendarFill/> 2018 - 2020</h6>
+
                             <h6>SMA Negeri Cikatomas</h6>
-                            <h6><CalendarFill/> 2015 - 2018</h6>
+                            <h6 className="mb-3"><CalendarFill/> 2015 - 2018</h6>
                         </div>
                     </div>
                 </div>
