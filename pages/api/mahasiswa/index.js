@@ -1,7 +1,7 @@
 import clientPromise from "../../../lib/mongodb"
 import { getSession } from "next-auth/react"
 
-export default async function (req, res){
+export default async function ApiMahasiswa(req, res){
   const session = await getSession({req})
 
   
