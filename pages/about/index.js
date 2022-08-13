@@ -112,7 +112,7 @@ export default function AboutPage(){
                             <h6>How I got into Programming</h6>
                             <h6 className="mr-3"><CalendarFill/> 2017 - 2018</h6>
                             <p>
-                                at 2014 when I'm at my last year in middle schoole, me and my friend think about how to make money, at that time
+                                at 2014 when I&apos;m at my last year in middle schoole, me and my friend think about how to make money, at that time
                                 we make a blog on Blogger, the idea come in because make a blog preaty popular that time. I learn 
                                 how to costume the page using css at that time, but I had no idea about it so the blog just make around 3 mounth.
                                 time went by until my scound year at highshool, the homeroom teacher gift the class a paper and we need to fill it whit 
@@ -121,14 +121,14 @@ export default function AboutPage(){
                             </p>
 
                             <p>
-                                so I make a group of three people and start discusing about web programing but it's not a formal club but because we don't have
-                                a mentor it's not going wel, we just talking to the teacher if they have time, and I learn "C" until I go to colage.
+                                so I make a group of three people and start discusing about web programing but it&apos;s not a formal club but because we don&apos;t have
+                                a mentor it&apos;s not going wel, we just talking to the teacher if they have time, and I learn &quot;C&quot; until I go to colage.
                             </p>
                             
                             <h6>I go to College Majoring in Informatics Engineering</h6>
                             <h6 className="mr-3"><CalendarFill/> 2018 - Now</h6>
                             <p>
-                                when I got to colage, I almost dosn't know any thing. like Algorithm, data structure, system planing.
+                                when I got to colage, I almost dosn&apos;t know any thing. like Algorithm, data structure, system planing.
                                 that was the ting I found on coalge.
                             </p>
                         </div>
