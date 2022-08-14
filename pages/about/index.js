@@ -20,7 +20,7 @@ export default function AboutPage(){
                         <hr/>
 
                         <div className="card-body">
-                            <h6><WindowFullscreen/> Im <text style={{'color': '#b00b29'}}>Interested</text> in Programming</h6>
+                            <h6><WindowFullscreen/> Im <a style={{'color': '#b00b29'}}>Interested</a> in Programming</h6>
                             <h6><House/> Tasikmalaya, Indonesia</h6>
                             <h6><Envelope/> ikbal.yaduar@outlook.com</h6>
                             <h6><Github/>
@@ -128,8 +128,8 @@ export default function AboutPage(){
                             <h6>I go to College Majoring in Informatics Engineering</h6>
                             <h6 className="mr-3"><CalendarFill/> 2018 - Now</h6>
                             <p>
-                                when I got to colage, I almost dosn&apos;t know any thing. like Algorithm, data structure, system planing.
-                                that was the ting I found on coalge.
+                                when I got to colage, I almost dosn&apos;t know any thing. Algorithm, data structure, system planing
+                                was something I found on coalge.
                             </p>
                         </div>
                     </div>

@@ -1,16 +1,18 @@
 import clientPromise from "../../../lib/mongodb"
 import { getSession } from "next-auth/react"
+import { MongoClient, ObjectId } from "mongodb"
 
 export default async function ApiMahasiswa(req, res){
   const session = await getSession({req})
 
   
   if(!session){
-    res.json({data: 'no access'})
+    res.write({data: 'no access'})
   } else {
     const client = await clientPromise
     const testDb = await client.db("test-Db")
     const tblMahasiswa = await testDb.collection("tblMahasiswa")
+    const userTbl = await testDb.collection("userTbl")
     
     if (req.method === "GET"){
       const data = tblMahasiswa.aggregate( [
@@ -52,26 +54,16 @@ export default async function ApiMahasiswa(req, res){
       
       res.json({session, result})
 
-    } else if (req.method === "POST") {
-      const name = req.body.name
-      const password = req.body.password
-      const email = req.body.email
-      const nip = req.body.nip
-      const userLast_update = new Date()
+    } 
+    
+    if (req.method === "DELETE") {
+      const id = req.body.id
 
-      await createListing(client, {
-        name: name,
-        password: password,
-        email: email,
-        nip: nip,
-        last_update: userLast_update
-      })
-
-      async function createListing(client, newListing) {
-        const result = client.db("e_learning_db").collection("userTbl").insertOne(newListing)
-        console.log(`New Listing created with the following id : ${result.insertedId}`)
-      }
-
+      const response = await tblMahasiswa.findOne({_id: new ObjectId(id)})
+      console.log({userid: response.userId, idMhs: id})
+      const deletedUser = await userTbl.deleteOne({_id: response.userId})
+      const deletedMhs = await tblMahasiswa.deleteOne({_id: new ObjectId(id)})
+      res.json({deletedUser: deletedUser.deletedCount, deletedMhs: deletedMhs.deletedCount})
     }
   }
 }
