@@ -2,20 +2,32 @@ import clientPromise from "../../../lib/mongodb"
 import { getSession } from "next-auth/react"
 import { MongoClient, ObjectId } from "mongodb"
 
+const formidable = require('formidable')
+const fs = require('fs')
+
+export const config = {
+  api: {
+      bodyParser: false,
+  }
+}
+
 export default async function ApiMahasiswa(req, res){
   const session = await getSession({req})
-
   
   if(!session){
     res.write({data: 'no access'})
   } else {
+    const from = formidable()
     const client = await clientPromise
     const testDb = await client.db("test-Db")
     const tblMahasiswa = await testDb.collection("tblMahasiswa")
     const userTbl = await testDb.collection("userTbl")
     
+    const date = new Date()
+    const time = date.getTime()
+
     if (req.method === "GET"){
-      const data = tblMahasiswa.aggregate( [
+      const data = await tblMahasiswa.aggregate( [
         {
           $lookup: {
             from: "userTbl",
@@ -57,13 +69,76 @@ export default async function ApiMahasiswa(req, res){
     } 
     
     if (req.method === "DELETE") {
-      const id = req.body.id
+      from.parse(req, async (err, fields) => {
+        const id = fields.id
+        const response = await tblMahasiswa.findOne({_id: new ObjectId(id)})
+        const path = "public/assets/user/Mhs/photo/" + response.fileName
 
-      const response = await tblMahasiswa.findOne({_id: new ObjectId(id)})
-      console.log({userid: response.userId, idMhs: id})
-      const deletedUser = await userTbl.deleteOne({_id: response.userId})
-      const deletedMhs = await tblMahasiswa.deleteOne({_id: new ObjectId(id)})
-      res.json({deletedUser: deletedUser.deletedCount, deletedMhs: deletedMhs.deletedCount})
+        fs.unlink(path, async (err) => {
+          if(err) throw err
+
+          const deletedUser = await userTbl.deleteOne({_id: response.userId})
+          const deletedMhs = await tblMahasiswa.deleteOne({_id: new ObjectId(id)})
+          res.json({deletedUser: deletedUser.deletedCount, deletedMhs: deletedMhs.deletedCount})
+        })
+      })
+    }
+
+    if (req.method === "POST") {
+      from.parse(req, async (err, fields, files) => {
+        const namaSiswa = fields.namaSiswa
+        const nip = fields.nip
+        const kelas = fields.kelas
+        const email = fields.email
+        const password = fields.password
+        const alamatLenggkap = fields.alamatLenggkap
+        const kota = fields.kota
+        const provinsi = fields.provinsi
+        const kodePos = fields.kodePos
+        const fileName = namaSiswa + time + files.fileName.originalFilename
+        const oldPath = files.fileName.filepath
+        const newPath = "public/assets/user/Mhs/photo/" + fileName
+
+        if(
+          !namaSiswa ||
+          !nip ||
+          !kelas ||
+          !email ||
+          !password ||
+          !alamatLenggkap ||
+          !kota ||
+          !provinsi ||
+          !kodePos ||
+          !fileName
+        ){
+          res.redirect(307, '/staff/mahasiswa')
+        } else {
+          const result = await userTbl.insertOne({
+            email,
+            password,
+            level: 1,
+          })
+
+          await tblMahasiswa.insertOne({
+            namaSiswa,
+            nip,
+            alamat: {
+              kota,
+              provinsi,
+              kodePos,
+              alamatLenggkap
+            },
+            userId: result.insertedId,
+            fileName,
+            idKelas: new ObjectId(kelas)
+          })
+
+          fs.rename(oldPath, newPath, (err) => {
+            if(err) throw err
+            res.redirect(307, '/staff/mahasiswa')
+          })
+        }
+      })
     }
   }
 }
