@@ -124,21 +124,21 @@ export default function Test({mahasiswa}){
                                 </h3>
                             </div>
 
-                            <div class="col-12 col-lg-12">
-                                <ul class="navbar-nav-scroll navbar-nav me-auto mb-2 mb-lg-2 d-flex flex-row text-nowrap">
-                                    <li class="nav-item pe-3">
+                            <div className="col-12 col-lg-12">
+                                <ul className="navbar-nav-scroll navbar-nav me-auto mb-2 mb-lg-2 d-flex flex-row text-nowrap">
+                                    <li className="nav-item pe-3">
                                         <a className="nav-link">Perusahaan</a>
                                     </li>
-                                    <li class="nav-item pe-3 ">
+                                    <li className="nav-item pe-3 ">
                                         <a className="nav-link">Kebijakan Privasi</a>
                                     </li>
-                                    <li class="nav-item pe-3 ">
+                                    <li className="nav-item pe-3 ">
                                         <a className="nav-link">Syarat dan Ketentuan Produk</a>
                                     </li>
-                                    <li class="nav-item pe-3 ">
+                                    <li className="nav-item pe-3 ">
                                         <a className="nav-link">Persyaratan Jasa</a>
                                     </li>
-                                    <li class="nav-item pe-3 ">
+                                    <li className="nav-item pe-3 ">
                                         <a className="nav-link">Penafian</a>
                                     </li>
                                 </ul>
