@@ -181,7 +181,7 @@ export default function Test({mahasiswa}){
 
                 <div className="container-fluid">
                     <div className="row">
-                        <div className="col-lg-3 col-md-3 col-sm-12" style={{'backgroundColor': '#f8f9f9', 'paddingTop': ''}}>
+                        <div className="col-lg-3 col-md-3 col-sm-12" style={{'backgroundColor': '#f8f9f9', 'paddingTop': '0px'}}>
                             <div className={state.navbar ? "position-sticky fixed-top fixed-height-overflow pt-5" : "position-sticky fixed-top pt-0 fixed-height-overflow"}>
                             <p>
                                 <strong>cmlabs</strong> adalah brand spesialis di bidang Search Engine Optimization (SEO) dan tools untuk mendukung
