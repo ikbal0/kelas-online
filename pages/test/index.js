@@ -63,32 +63,64 @@ export default function Test({mahasiswa}){
         })
     }
 
-    const shadow = () => {
-        if(window.scrollY >= 56){
+    if (typeof window !== "undefined") {
+        window.addEventListener("scroll", onScroll);
+    }
+
+    function onScroll() {
+        if(window.scrollY > 56){
             setState({
                 ...state,
-                scroll: !state.scroll
+                scroll: !state.scroll,
+                navbar: !state.navbar
             })
         }
     }
 
-    useEffect(() => {
-        let l = false
-        if(!l){
-            window.addEventListener('scroll', shadow)
-        }
-        return () => {
-            l = true
-        }
-    })
+    // useEffect(() => {
+    //     let l = false
+    //     if(!l){
+    //         window.addEventListener('scroll', shadow)
+    //     }
+    //     return () => {
+    //         l = true
+    //     }
+    // })
+    
+    // useEffect(function mount() {
+    //     function onScroll() {
+    //         if(window.scrollY > 56){
+    //             setState({
+    //                 ...state,
+    //                 scroll: !state.scroll
+    //             })
+    //         }
+    //     }
 
-    const shadowState = state.scroll ? "shadow-lg" : ""
+    //     function shadow() {
+    //         if(window.scrollY > 56){
+    //             setState({
+    //                 ...state,
+    //                 scroll: !state.scroll
+    //             })
+    //         }
+    //     }
+    
+    //     window.addEventListener("scroll", onScroll);
+    
+    //     return function unMount() {
+    //       window.removeEventListener("scroll", onScroll);
+    //     };
+    // });
+
+    // window.addEventListener('scroll', shadow)
+
     const navbarState = state.navbar ? "show" : ""
 
     return (
         <>
             <div>
-                <div className="sticky-lg-top sticky-md-top" style={{'backgroundColor': 'white'}}>
+                <div className={state.scroll ? "sticky-lg-top sticky-md-top shadow" : "sticky-lg-top sticky-md-top"} style={{'backgroundColor': 'white'}}>
                     <nav className="navbar navbar-expand-lg bg-light mb-3">
                         <div className="container-fluid">
                             <a className="navbar-brand" href="#">MyLab <strong>Information Center</strong></a>
@@ -149,8 +181,8 @@ export default function Test({mahasiswa}){
 
                 <div className="container-fluid">
                     <div className="row">
-                        <div className="col-lg-3 col-md-3 col-sm-12" style={{'backgroundColor': '#f8f9f9'}}>
-                            <div className="position-sticky sticky-top pt-0 fixed-height-overflow">
+                        <div className="col-lg-3 col-md-3 col-sm-12" style={{'backgroundColor': '#f8f9f9', 'paddingTop': ''}}>
+                            <div className={state.navbar ? "position-sticky fixed-top fixed-height-overflow pt-5" : "position-sticky fixed-top pt-0 fixed-height-overflow"}>
                             <p>
                                 <strong>cmlabs</strong> adalah brand spesialis di bidang Search Engine Optimization (SEO) dan tools untuk mendukung
                                 kegiatan SEO dibawah <strong>PT cmlabs Indonesia Digital</strong>. Terletak di dua kota besar di Indonesia, Jakarta
