@@ -64,20 +64,6 @@ export default function Test({mahasiswa}){
         })
     }
 
-    if (typeof window !== "undefined") {
-        window.addEventListener("scroll", onScroll);
-    }
-
-    function onScroll() {
-        if(window.scrollY > 56){
-            setState({
-                ...state,
-                scroll: !state.scroll,
-                navbar: !state.navbar
-            })
-        }
-    }
-
     // useEffect(() => {
     //     let l = false
     //     if(!l){
@@ -121,7 +107,7 @@ export default function Test({mahasiswa}){
     return (
         <>
             <div>
-                <div className="position-sticky sticky-top pt-0 fixed-height-overflow" style={{'backgroundColor': 'white'}}>
+                <div className="position-sticky sticky-lg-top pt-0 fixed-height-overflow" style={{'backgroundColor': 'white'}}>
                     <nav className="navbar navbar-expand-lg bg-light mb-3">
                         <div className="container-fluid">
                             <a className="navbar-brand" href="#">MyLab <strong>Information Center</strong></a>
@@ -183,7 +169,7 @@ export default function Test({mahasiswa}){
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-lg-2 col-md-2 col-sm-12" style={{'backgroundColor': '#f8f9f9', 'paddingTop': '0px'}}>
-                            <div className={"position-sticky sticky-top pt-0 fixed-height-overflow"} style={{'top': '56px'}}>
+                            <div className={"position-lg-sticky sticky-lg-top pt-0 fixed-height-overflow"} style={{'top': '56px'}}>
                             <h6><Asterisk/> Familiar with</h6>
                             
                             <h6><FiletypeJs/>
