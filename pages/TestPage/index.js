@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Asterisk, Bootstrap, FiletypeJava, FiletypeJs, Microsoft } from "react-bootstrap-icons";
 
 export default function Test({mahasiswa}){
     // async function handleSubmit (event) {
@@ -120,7 +121,7 @@ export default function Test({mahasiswa}){
     return (
         <>
             <div>
-                <div className={state.scroll ? "sticky-lg-top sticky-md-top shadow" : "sticky-lg-top sticky-md-top"} style={{'backgroundColor': 'white'}}>
+                <div className="position-sticky sticky-top pt-0 fixed-height-overflow" style={{'backgroundColor': 'white'}}>
                     <nav className="navbar navbar-expand-lg bg-light mb-3">
                         <div className="container-fluid">
                             <a className="navbar-brand" href="#">MyLab <strong>Information Center</strong></a>
@@ -181,19 +182,72 @@ export default function Test({mahasiswa}){
 
                 <div className="container-fluid">
                     <div className="row">
-                        <div className="col-lg-3 col-md-3 col-sm-12" style={{'backgroundColor': '#f8f9f9', 'paddingTop': '0px'}}>
-                            <div className={state.navbar ? "position-sticky fixed-top fixed-height-overflow pt-5" : "position-sticky fixed-top pt-0 fixed-height-overflow"}>
-                            <p>
-                                <strong>cmlabs</strong> adalah brand spesialis di bidang Search Engine Optimization (SEO) dan tools untuk mendukung
-                                kegiatan SEO dibawah <strong>PT cmlabs Indonesia Digital</strong>. Terletak di dua kota besar di Indonesia, Jakarta
-                                dan Malang, perusahaan ini digagas untuk membantu perusahaan meningkatkan visibilitas brand mereka di Internet.
-                                <strong>cmlabs</strong> adalah istilah baru untuk produk dan layanan SEO yang disebut Software as a Service (SaaS).
-                                Kami melayani pengguna dengan Konsultan SEO, Penulisan Konten, Pemasaran Konten, dan juga kami memiliki produk
-                                berupa Keyword Ranking Tracker. Selain layanan dan produk, <strong>cmlabs</strong> juga menyediakan SEO Tools
-                                gratis. Pengguna yang sedang melakukan SEO dan pemasaran dapat memanfaatkan tools ini tanpa biaya selama 24 jam.
-                                <strong>cmlabs</strong> akan berkembang ke pasar yang lebih besar untuk menghadirkan produk SEO dan melayani
-                                aktivitas SEO dalam skala global. <strong>Do better SEO with cmlabs</strong>.
-                            </p>
+                        <div className="col-lg-2 col-md-2 col-sm-12" style={{'backgroundColor': '#f8f9f9', 'paddingTop': '0px'}}>
+                            <div className={"position-sticky sticky-top pt-0 fixed-height-overflow"} style={{'top': '56px'}}>
+                            <h6><Asterisk/> Familiar with</h6>
+                            
+                            <h6><FiletypeJs/>
+                                <a
+                                href="https://github.com/ikbal0/kelas-online.git" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                style={{'textDecoration': 'none', 'color': 'black'}}> Basic Javascript
+                                </a>
+                            </h6>
+                            
+                            <h6><FiletypeJava/> 
+                                <a
+                                href="https://github.com/ikbal0/kelas-online.git" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                style={{'textDecoration': 'none', 'color': 'black'}}> Basic Java</a>
+                            </h6>
+                            
+                            <h6 style={{'color': '#83CD29'}}>
+                                <a
+                                href="https://github.com/ikbal0/kelas-online.git" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                style={{'textDecoration': 'none', 'color': '#83CD29'}}> Node Js</a>
+                            </h6>
+                            
+                            <h6>
+                                <a
+                                href="https://github.com/ikbal0/kelas-online.git" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                style={{'textDecoration': 'none', 'color': 'black'}}> RestAPI</a>
+                            </h6>
+                            
+                            <h6 style={{'color': '#00ED64'}}>
+                                <a
+                                href="https://github.com/ikbal0/kelas-online.git" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                style={{'textDecoration': 'none', 'color': '#00ED64'}}> MongoDB</a>
+                            </h6>
+                            
+                            <h6><Bootstrap/>
+                                <a
+                                href="https://github.com/ikbal0/kelas-online.git" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                style={{'textDecoration': 'none', 'color': 'black'}}> Bootstrap</a>
+                            </h6>
+                            
+                            <h6>
+                                <a
+                                href="https://github.com/ikbal0/kelas-online.git" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                style={{'textDecoration': 'none', 'color': 'black'}}> Next Js</a>
+                            </h6>
+                            
+                            <h6><Microsoft/> Ms Visio
+                            </h6>
+                            
+                            <h6><Microsoft/> Ms Office(Word, Excel, Power Point)
+                            </h6>
                             </div>
                         </div>
                         <div className="col-lg-6 col-md-6 col-sm-12">
