@@ -78,7 +78,7 @@ export default function StaffDashboard(){
                     </div>
                 </div>
                 
-                <div className="col-lg-7 col-md-7 col-sm-12">
+                <div className="col-lg-10 col-md-10 col-sm-12">
                     <div className="row px-3 ps-3 p-2">
                         <div className="card">
                             <div className="row py-3">
@@ -214,16 +214,6 @@ export default function StaffDashboard(){
                         </div>
                     </div>
                 </div>
-
-                    <div className="col-lg-3 col-md-3 col-sm-0 px-3 ps-3 p-2">
-                        <div className=" position-lg-sticky sticky-lg-top fixed-height-overflow" style={{'top': '76px'}}>
-                        <div className="card">
-                            <div className="card-body">
-                            <h4>Detail</h4>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
             </div>
         </div>
     </div>
