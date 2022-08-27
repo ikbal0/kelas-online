@@ -208,45 +208,52 @@ export default function MahasiswaPage(){
 
             <hr/>
 
-            <div className="table-responsive">
-                <table className="table">
-                    <thead>
-                        <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">NIP</th>
-                        <th scope="col">Class</th>
-                        <th scope="col">Major</th>
-                        <th scope="col">Kec</th>
-                        <th scope="col">Pos</th>
-                        <th scope="col">City</th>
-                        <th scope="col">Prov</th>
-                        <th scope="col">fileName</th>
-                        <th scope="col">action</th>
-                        </tr>
-                    </thead>
-                    <tbody className="table-group-divider">
-                        {
-                            data.result.map((f) => {
-                                return(
-                                    <tr key={f._id}>
-                                        <td>{f.namaSiswa}</td>
-                                        <td>{f.nip}</td>
-                                        <td>{f.kelas}</td>
-                                        <td>{f.jurusan}</td>
-                                        <td>{f.alamat.alamatLenggkap}</td>
-                                        <td>{f.alamat.kodePos}</td>
-                                        <td>{f.alamat.kota}</td>
-                                        <td>{f.alamat.provinsi}</td>
-                                        <td>{f.fileName}</td>
-                                        <td>
-                                        <button type="button" onClick={() => handleDelete(f._id, f.namaSiswa)} className="btn btn-success">Delete</button>    
-                                        </td>
-                                    </tr>
-                                )
-                            })
-                        }
-                    </tbody>
-                </table>
+            <div className="row">
+            <div className="col-lg-2 col-md-2">
+                <h4>Detail</h4>
+            </div>
+            <div className="col-lg-10 col-md-10 col-sm-12">
+                <div className="table-responsive">
+                    <table className="table">
+                        <thead>
+                            <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">NIP</th>
+                            <th scope="col">Class</th>
+                            <th scope="col">Major</th>
+                            <th scope="col">Kec</th>
+                            <th scope="col">Pos</th>
+                            <th scope="col">City</th>
+                            <th scope="col">Prov</th>
+                            <th scope="col">fileName</th>
+                            <th scope="col">action</th>
+                            </tr>
+                        </thead>
+                        <tbody className="table-group-divider">
+                            {
+                                data.result.map((f) => {
+                                    return(
+                                        <tr key={f._id}>
+                                            <td>{f.namaSiswa}</td>
+                                            <td>{f.nip}</td>
+                                            <td>{f.kelas}</td>
+                                            <td>{f.jurusan}</td>
+                                            <td>{f.alamat.alamatLenggkap}</td>
+                                            <td>{f.alamat.kodePos}</td>
+                                            <td>{f.alamat.kota}</td>
+                                            <td>{f.alamat.provinsi}</td>
+                                            <td>{f.fileName}</td>
+                                            <td>
+                                            <button type="button" onClick={() => handleDelete(f._id, f.namaSiswa)} className="btn btn-success">Delete</button>    
+                                            </td>
+                                        </tr>
+                                    )
+                                })
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             </div>
         </div>
     </div>
