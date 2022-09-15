@@ -44,9 +44,6 @@ export default function StaffDashboard(){
                             <li className="nav-item pe-3 ">
                                 <a className="nav-link">Persyaratan Jasa</a>
                             </li>
-                            <li className="nav-item pe-3 ">
-                                <a className="nav-link">Penafian</a>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -79,6 +76,16 @@ export default function StaffDashboard(){
 
                                 <ul className="list-unstyled fw-normal pb-2 small">
                                     <li><Link href={'/staff/mahasiswa'}><a style={{'textDecoration': 'none'}} className="bd-links-link d-inline-block rounded active" aria-current="page"><h6>Set Matakuliah</h6></a></Link></li>
+                                </ul>
+                            </li>
+
+                            <li className="bd-links-group py-2">
+                                <strong className="bd-links-heading d-flex w-100 align-items-center fw-semibold">
+                                    <h5>Blog</h5>
+                                </strong>
+
+                                <ul className="list-unstyled fw-normal pb-2 small">
+                                    <li><Link href={'/blog'}><a style={{'textDecoration': 'none'}} className="bd-links-link d-inline-block rounded active" aria-current="page"><h6>Post</h6></a></Link></li>
                                 </ul>
                             </li>
                         </ul>
@@ -229,14 +236,14 @@ export default function StaffDashboard(){
 export async function getServerSideProps(context) {
     const session = await getSession(context)
 
-    // if (!session){
-    //     return {
-    //         redirect: {
-    //             permanent: false,
-    //             destination: "/"
-    //         }
-    //     }
-    // }
+    if (!session){
+        return {
+            redirect: {
+                permanent: false,
+                destination: "/"
+            }
+        }
+    }
 
     return {
         props: {
