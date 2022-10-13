@@ -37,7 +37,7 @@ export default NextAuth({
 
                 if (dataUser) {
                     if (credentials.password === dataUser.password){
-                        console.log(dataUser)
+                        // console.log(dataUser)
                         return {
                             email: dataUser.email,
                             level: dataUser.level
