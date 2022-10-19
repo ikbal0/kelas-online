@@ -16,7 +16,6 @@ const fetcher = async () => {
 export default function MahasiswaPage(){
     const {data, error} = useSWR('dashboard', fetcher)
 
-
     const [mahasiswa, setMhs] = useState(null)
     const [isLoading, setLoading] = useState(false)
     const [state, setState] = useState({
@@ -34,30 +33,15 @@ export default function MahasiswaPage(){
     }
 
     async function fetchMhs(){
-        const response = await fetch('/api/mahasiswa')
-        const data = await response.json()
+        // const response = await fetch('/api/mahasiswa')
+        // const data = await response.json()
 
-        let filData = data.result.filter(function (el) {
-            return el._id == '62fdc0e7b684888eaaa519e8'
-        })
+        // let filData = data.result.filter(function (el) {
+        //     return el._id == '62fdc0e7b684888eaaa519e8'
+        // })
 
-        setMhs(filData)
+        // setMhs(filData)
     }
-
-    // async function fetchMhs(){
-    //     const filDta = data.result.filter(function (el) {
-    //         return el._id == '62ba4e8d3b55bf82425d072b'
-    //     })
-
-    //     setMhs(filDta)
-    // }
-
-    // let dataFill = data.result.filter(function (el) {
-    //     return el._id == '62ba4e8d3b55bf82425d072b'
-    // })
-
-    // console.log(dataFill)
-
     async function fetchKls(){
         const response = await fetch('/api/kelas')
         const data = await response.json()
@@ -130,7 +114,7 @@ export default function MahasiswaPage(){
     const display = state.modal ? "block" : "none"
 
     if(isLoading) return <p>Loading...</p>
-    if(!mahasiswa || !state.kelas) return <p>No profile data</p>
+    // if(!mahasiswa || !state.kelas) return <p>No profile data</p>
 
     if(error) return 'An Error has occurred'
     if(!data) return 'No data'
@@ -250,7 +234,7 @@ export default function MahasiswaPage(){
                         </thead>
                         <tbody className="table-group-divider">
                             {
-                                data.result.map((f, i) => {
+                                data.map((f, i) => {
                                     return(
                                         <tr key={i}>
                                             <td>{f.namaSiswa}</td>
@@ -297,21 +281,21 @@ export default function MahasiswaPage(){
                     <div className="position-lg-sticky sticky-lg-top pt-0 fixed-height-overflow" style={{'top': '56px'}}>
                     <h4>Detail</h4>
                     {
-                        mahasiswa.map(f => {
-                            return(
-                                <>
-                                <img src={`/assets/user/Mhs/photo/${f.fileName}`} width="100%"/>
-                                <h6>{f.namaSiswa}</h6>
-                                <h6>{f.nip}</h6>
-                                <h6>{f.kelas}</h6>
-                                <h6>{f.jurusan}</h6>
-                                <h6>{f.alamat.alamatLenggkap}</h6>
-                                <h6>{f.alamat.kodePos}</h6>
-                                <h6>{f.alamat.kota}</h6>
-                                <h6>{f.alamat.provinsi}</h6>
-                                </>
-                            )
-                        })
+                    //     mahasiswa.map(f => {
+                    //         return(
+                    //             <>
+                    //             <img src={`/assets/user/Mhs/photo/${f.fileName}`} width="100%"/>
+                    //             <h6>{f.namaSiswa}</h6>
+                    //             <h6>{f.nip}</h6>
+                    //             <h6>{f.kelas}</h6>
+                    //             <h6>{f.jurusan}</h6>
+                    //             <h6>{f.alamat.alamatLenggkap}</h6>
+                    //             <h6>{f.alamat.kodePos}</h6>
+                    //             <h6>{f.alamat.kota}</h6>
+                    //             <h6>{f.alamat.provinsi}</h6>
+                    //             </>
+                    //         )
+                    //     })
                     }
                     </div>
                 </div>
@@ -324,7 +308,7 @@ export default function MahasiswaPage(){
 }
 
 export async function getServerSideProps(context) {
-    const session = await getSession(context)
+    const session = await getSession(context);
 
     if(!session){
         return {
@@ -333,6 +317,8 @@ export async function getServerSideProps(context) {
                 destination: "/auth/signin"
             }
         }
+    } else {
+        console.log(session.id)
     }
 
     return {

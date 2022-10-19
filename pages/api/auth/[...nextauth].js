@@ -40,7 +40,8 @@ export default NextAuth({
                         // console.log(dataUser)
                         return {
                             email: dataUser.email,
-                            level: dataUser.level
+                            level: dataUser.level,
+                            id: dataUser._id
                         }
                     } else {
                         return null
@@ -59,15 +60,17 @@ export default NextAuth({
         jwt: ({ token, user }) => {
             if(user){
                 token.email = user.email,
-                token.level = user.level
+                token.level = user.level,
+                token.id = user.id
             }
 
             return token
         },
         session: ({ session, token }) => {
             if(token){
-                session.email = token.email
-                session.level = token.level
+                session.email = token.email,
+                session.level = token.level,
+                session.id = token.id
             }
 
             return session

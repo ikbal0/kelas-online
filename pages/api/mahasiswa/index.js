@@ -64,7 +64,7 @@ export default async function ApiMahasiswa(req, res){
         
       const result = await data.toArray()
       
-      res.json({session, result})
+      res.json(result)
 
     } 
     
