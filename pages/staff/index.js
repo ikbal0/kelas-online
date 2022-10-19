@@ -33,7 +33,7 @@ export default function StaffDashboard(){
                     <div className="col-12 col-lg-12">
                         <ul className="navbar-nav-scroll navbar-nav me-auto mb-2 mb-lg-2 d-flex flex-row text-nowrap">
                             <li className="nav-item pe-3">
-                                <a className="nav-link">Perusahaan</a>
+                            <Link href={'/staff/mahasiswa'}><a className="nav-link">Mahasiswa</a></Link>
                             </li>
                             <li className="nav-item pe-3 ">
                                 <a className="nav-link">Kebijakan Privasi</a>
@@ -54,7 +54,7 @@ export default function StaffDashboard(){
             <div className="row">
                 <div className="col-lg-2 col-md-2 col-sm-12" style={{'backgroundColor': '#f8f9f9', 'paddingTop': '0px'}}>
                     <div className={"position-lg-sticky sticky-lg-top pt-0 fixed-height-overflow"} style={{'top': '76px'}}>
-                    <ul className="bd-links-nav list-unstyled mb-0 pb-3 pb-md-2 pe-lg-2 ps-2">
+                        <ul className="bd-links-nav list-unstyled mb-0 pb-3 pb-md-2 pe-lg-2 ps-2">
                             <li className="bd-links-group py-2">
                                 <strong className="bd-links-heading d-flex w-100 align-items-center fw-semibold">
                                     <h5>Data</h5>
