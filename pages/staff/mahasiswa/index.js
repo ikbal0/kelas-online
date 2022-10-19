@@ -1,16 +1,13 @@
-import Modal from "../../../lib/components/Modal/ModalStaffFromMhs";
 import TableMhs from "../../../lib/components/Staff/Mhs/TableMhs";
 import SideNav from "../../../lib/components/Staff/Navbar/SideNav";
 import StaffNav from "../../../lib/components/StaffNav";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import useSWR from "swr"
 import { getSession } from "next-auth/react"
 import Head from "next/head";
 
 export default function MahasiswaPage(){
 
-    const [mahasiswa, setMhs] = useState(null)
     const [isLoading, setLoading] = useState(false)
     const [state, setState] = useState({
         modal: false,
@@ -26,16 +23,6 @@ export default function MahasiswaPage(){
         })
     }
 
-    async function fetchMhs(){
-        // const response = await fetch('/api/mahasiswa')
-        // const data = await response.json()
-
-        // let filData = data.result.filter(function (el) {
-        //     return el._id == '62fdc0e7b684888eaaa519e8'
-        // })
-
-        // setMhs(filData)
-    }
     async function fetchKls(){
         const response = await fetch('/api/kelas')
         const data = await response.json()
@@ -51,7 +38,6 @@ export default function MahasiswaPage(){
         let isCancelled = false;
 
         if (!isCancelled){
-            fetchMhs()
             fetchKls()
             setLoading(false)
         }
@@ -167,35 +153,6 @@ export default function MahasiswaPage(){
         </Head>
         <div className="row position-sticky sticky-lg-top">
             <StaffNav/>
-        </div>
-
-        <div className="container-fluid">    
-            <div className="col-12 col-lg-12 px-0"  style={{'top': '76px'}}>
-                <div className="row justify-content-center">
-                    <div className="col-12 col-lg-12">
-                        <h3 className="text-muted">
-                            MAHASISWA
-                        </h3>
-                    </div>
-
-                    <div className="col-12 col-lg-12">
-                        <ul className="navbar-nav-scroll navbar-nav me-auto mb-2 mb-lg-2 d-flex flex-row text-nowrap">
-                            <li className="nav-item pe-3">
-                            <Link href={'/staff/mahasiswa'}><a className="nav-link">Mahasiswa</a></Link>
-                            </li>
-                            <li className="nav-item pe-3 ">
-                                <a className="nav-link">Kebijakan Privasi</a>
-                            </li>
-                            <li className="nav-item pe-3 ">
-                                <a className="nav-link">Syarat dan Ketentuan Produk</a>
-                            </li>
-                            <li className="nav-item pe-3 ">
-                                <a className="nav-link">Persyaratan Jasa</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div style={{'padding': '20px'}}>

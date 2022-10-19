@@ -1,6 +1,6 @@
 import clientPromise from "../../../lib/mongodb"
 import { getSession } from "next-auth/react"
-import { MongoClient, ObjectId } from "mongodb"
+import { ObjectId } from "mongodb"
 
 const formidable = require('formidable')
 const fs = require('fs')
