@@ -163,7 +163,7 @@ export default function MahasiswaPage(){
             <hr/>
 
             <div className="row">
-                <SideNav/>
+                <SideNav mhsActive={true}/>
                 
                 <div className="col-lg-10 col-md-10 col-sm-12">
                     <TableMhs/>

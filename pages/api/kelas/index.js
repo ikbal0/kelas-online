@@ -9,7 +9,6 @@ export default async function TestAPI(req, res){
         const client = await clientPromise
         const testDb = await client.db("test-Db")
         const tblKelas = await testDb.collection("tblKelas")
-        const userTbl = await testDb.collection("userTbl")
         if(req.method === "GET"){
             const data = await tblKelas.aggregate([
                 {
