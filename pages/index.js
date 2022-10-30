@@ -48,7 +48,7 @@ export default function Home({isConnected}) {
               </div>
               <br/>
               <h4 style={{color: 'white'}} className="subtitle">
-                Use <code>admin</code> as user and password to login to staff dashboard. Check the <code>README.md</code>{' '}
+                Use <code>admin@email.com</code> as email and <code>admin</code> as password to login to staff dashboard. Check the <code>README.md</code>{' '}
                 for more instructions.
               </h4>
             </div>
