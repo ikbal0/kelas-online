@@ -34,7 +34,7 @@ export default function StaffDashboard(){
                     <div className="col-12 col-lg-12">
                         <ul className="navbar-nav-scroll navbar-nav me-auto mb-2 mb-lg-2 d-flex flex-row text-nowrap">
                             <li className="nav-item pe-3">
-                            <Link href={'/staff/mahasiswa'}><a className="nav-link">Mahasiswa</a></Link>
+                            <Link href={'/'}><a className="nav-link">Home</a></Link>
                             </li>
                             <li className="nav-item pe-3 ">
                                 <a className="nav-link">Kebijakan Privasi</a>

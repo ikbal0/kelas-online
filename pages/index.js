@@ -46,6 +46,11 @@ export default function Home({isConnected}) {
                   <h3 style={{color: 'white', paddingTop: '9px'}}>{"--->"}</h3>
                 </div>
               </div>
+              <br/>
+              <h4 style={{color: 'white'}} className="subtitle">
+                Use <code>admin</code> as user and password to login to staff dashboard. Check the <code>README.md</code>{' '}
+                for more instructions.
+              </h4>
             </div>
             <div className='col-sm-12 col-md-7'>
               <Image src={img} placeholder='blur' alt='pic'/>
