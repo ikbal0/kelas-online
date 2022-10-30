@@ -2,7 +2,7 @@ import Head from "next/head";
 import SideNav from "../../../lib/components/Staff/Navbar/SideNav";
 import StaffNav from "../../../lib/components/StaffNav";
 import { getSession } from "next-auth/react"
-import TableKelas from "../../../lib/components/Staff/kelas/TableKelas";
+import TableJurusan from "../../../lib/components/Staff/Jurusan/TableJurusan";
 
 export default function ListKelas() {
     return(
@@ -28,7 +28,7 @@ export default function ListKelas() {
                 <SideNav jurusanActive={true}/>
                 
                 <div className="col-lg-10 col-md-10 col-sm-12">
-                    <TableKelas/>
+                    <TableJurusan/>
                 </div>
             </div>
         </div>
