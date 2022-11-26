@@ -95,6 +95,16 @@
   font-size: 1.5rem;
 }
 
+.link{
+  text-decoration: none;
+  color: gray;
+}
+
+.link:hover{
+  text-decoration: underline;
+  color: gray;
+}
+
 .card p {
   margin: 0;
   font-size: 1.25rem;

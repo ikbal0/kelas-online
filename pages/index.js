@@ -10,6 +10,84 @@ import img from '../public/assets/pic/bg/bgIndex.png'
 export default function Home({isConnected}) {
   const { data: session } = useSession()
 
+  function Content(){
+    return <>
+      <h1 style={{color: 'white'}}>{!session ? 'Hello': <a style={{color: 'white'}}>{'Welcome ' + session.user.email}</a>}</h1>
+
+      {isConnected ? (
+        <h2 style={{color: 'white'}} className="subtitle">You are connected to MongoDB</h2>
+      ) : (
+        <h2 style={{color: 'white'}} className="subtitle">
+          You are NOT connected to MongoDB. Check the <code>README.md</code>{' '}
+          for instructions.
+        </h2>
+      )}
+
+      <div className='row'>
+        <div className='col-auto'>
+          <h1>{!session ? <button onClick={() => signIn()} className="btn btn-success" type="submit">Sign in</button>: <Link href={'/staff'}><a className='btn btn-primary'>Dashboard</a></Link>}</h1>
+        </div>
+        <div className='col'>
+          <h3 style={{color: 'white', paddingTop: '9px'}}>{"--->"}</h3>
+        </div>
+      </div>
+      <br/>
+      <h4 style={{color: 'white'}} className="subtitle">
+        Use <code>admin@email.com</code> as email and <code>admin</code> as password to login to staff dashboard. Check the <code>README.md</code>{' '}
+        for more instructions.
+      </h4>
+    </>
+  }
+
+  function List(){
+    return (
+      <>
+      <div className='row pt-5' style={{color: 'white'}}>
+        <p>REST API with Express Js</p>
+        <div className='col'>
+          <p>visit my repository</p>
+        </div>
+        <div className='col-auto text-end'>
+        {// eslint-disable-next-line react/no-unescaped-entities
+        <div id="emailHelp" className="form-text"><a className={styles.link} href='https://github.com/ikbal0/my-product/' target="_blank" rel="noreferrer">https://github.com/ikbal0/my-product/</a></div> }
+        </div>
+        <hr/>
+      </div>
+      <div className='row' style={{color: 'white'}}>
+        <p>Email handling using Nodemailer</p>
+        <div className='col'>
+          <p>visit my repository</p>
+        </div>
+        <div className='col-auto'>
+          <div id="emailHelp" className="form-text"><a className={styles.link} href='https://github.com/ikbal0/email-contact-app/' target="_blank" rel="noreferrer">https://github.com/ikbal0/email-contact-app/</a></div>
+        </div>
+        <hr/>
+      </div>
+      </>
+    )
+  }
+
+  function Footer(){
+    return <>
+    <footer className={styles.footer}>
+      <Link href={'/about'}><a style={{color: 'blue', textDecoration: 'none'}}>Ikbal Yaduar</a></Link>
+    </footer>
+    <footer className={styles.footer}>
+      <a
+        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{textDecoration: 'none'}}
+      >
+        Powered by{' '}
+        <span className={styles.logo}>
+          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+        </span>
+      </a>
+    </footer>
+    </>
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -21,36 +99,11 @@ export default function Home({isConnected}) {
       <AppNavbar />
 
       <main className={styles.main}>
-
         <div className='container'>
           <div className='row'>
             <div className='col-sm-12 col-md-5'>
-              <div className='row'>
-                <h1 style={{color: 'white'}}>{!session ? 'Hello': <a style={{color: 'white'}}>{'Welcome ' + session.user.email}</a>}</h1>
-
-                {isConnected ? (
-                  <h2 style={{color: 'white'}} className="subtitle">You are connected to MongoDB</h2>
-                ) : (
-                  <h2 style={{color: 'white'}} className="subtitle">
-                    You are NOT connected to MongoDB. Check the <code>README.md</code>{' '}
-                    for instructions.
-                  </h2>
-                )}
-              </div>
-
-              <div className='row'>
-                <div className='col-auto'>
-                  <h1>{!session ? <button onClick={() => signIn()} className="btn btn-success" type="submit">Sign in</button>: <Link href={'/staff'}><a className='btn btn-primary'>Dashboard</a></Link>}</h1>
-                </div>
-                <div className='col'>
-                  <h3 style={{color: 'white', paddingTop: '9px'}}>{"--->"}</h3>
-                </div>
-              </div>
-              <br/>
-              <h4 style={{color: 'white'}} className="subtitle">
-                Use <code>admin@email.com</code> as email and <code>admin</code> as password to login to staff dashboard. Check the <code>README.md</code>{' '}
-                for more instructions.
-              </h4>
+              <Content/>
+              <List/>
             </div>
             <div className='col-sm-12 col-md-7'>
               <Image src={img} placeholder='blur' alt='pic'/>
@@ -59,22 +112,7 @@ export default function Home({isConnected}) {
         </div>
       </main>
 
-      <footer className={styles.footer}>
-        <Link href={'/about'}><a style={{color: 'blue', textDecoration: 'none'}}>Ikbal Yaduar</a></Link>
-      </footer>
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{textDecoration: 'none'}}
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+      <Footer/>
     </div>
   )
 }
@@ -84,14 +122,6 @@ export async function getServerSideProps(context) {
 
   try {
     await clientPromise
-    // `await clientPromise` will use the default database passed in the MONGODB_URI
-    // However you can use another database (e.g. myDatabase) by replacing the `await clientPromise` with the following code:
-    //
-    // `const client = await clientPromise`
-    // `const db = client.db("myDatabase")`
-    //
-    // Then you can execute queries against your database like so:
-    // db.find({}) or any of the MongoDB Node Driver commands
 
     return {
       props: { isConnected: true },

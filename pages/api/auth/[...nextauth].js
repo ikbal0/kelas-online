@@ -1,5 +1,6 @@
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
+import EmailProvider from "next-auth/providers/email";
 import clientPromise from "../../../lib/mongodb";
 
 export default NextAuth({
@@ -54,7 +55,18 @@ export default NextAuth({
                     // throw '/path/to/redirect'        // Redirect to a URL
                 }
             }
-        })
+        }),
+        // EmailProvider({
+        //     server: {
+        //         host: process.env.EMAIL_SERVER_HOST,
+        //         port: process.env.EMAIL_SERVER_PORT,
+        //         auth: {
+        //             user: process.env.EMAIL_SERVER_USER,
+        //             pass: process.env.EMAIL_SERVER_PASSWORD
+        //         }
+        //     },
+        //     from: process.env.EMAIL_FROM
+        // })
     ],
     callbacks: {
         jwt: ({ token, user }) => {
