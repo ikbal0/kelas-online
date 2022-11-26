@@ -23,9 +23,9 @@ export default function Home({isConnected}) {
         </h2>
       )}
 
-      <div className='row'>
+      <div className='row pt-2'>
         <div className='col-auto'>
-          <h1>{!session ? <button onClick={() => signIn()} className="btn btn-success" type="submit">Sign in</button>: <Link href={'/staff'}><a className='btn btn-primary'>Dashboard</a></Link>}</h1>
+          <h1>{!session ? <button onClick={() => signIn()} className={styles.button49} type="submit">Sign in</button>: <Link href={'/staff'}><a className='btn btn-primary'>Dashboard</a></Link>}</h1>
         </div>
         <div className='col'>
           <h3 style={{color: 'white', paddingTop: '9px'}}>{"--->"}</h3>
