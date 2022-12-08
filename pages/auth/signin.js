@@ -15,10 +15,10 @@ export default function SignIn({csrfToken}){
             </Head>
 
             <main className={styles.main}>
-                <div className='container'>
+                <div className='container-fluid'>
                 <div className='row'>
                     <div className='col-sm-12 col-md-2'>
-                        <form style={{marginLeft: 'auto', marginRight: 'auto'}} method='POST' action='/api/auth/callback/credentials'>
+                        <form method='POST' action='/api/auth/callback/credentials'>
                             <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
                             <div className='row mb-3'>
                                 <input className='form-control' name="email" type="text" placeholder="{email}" />
