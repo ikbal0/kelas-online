@@ -4,8 +4,11 @@ import AppNavbar from "../../lib/components/AppNavbar";
 import Image from "next/image";
 import img from "../../public/assets/pic/foto/foto.jpg"
 import { Archive, ArchiveFill, Asterisk, Bootstrap, Calendar, CalendarFill, Envelope, FiletypeJava, FiletypeJs, Github, Globe, House, Microsoft, PersonBoundingBox, WindowFullscreen } from "react-bootstrap-icons";
+import { useRouter } from "next/router";
 
 export default function AboutPage(){
+    const route = useRouter()
+    route.push('/')
     return (
         <div style={{'paddingTop': '20px'}}>
             <div className="row mx-2 my-2 mx-lg-5">
